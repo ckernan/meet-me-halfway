@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'PT Mono', monospace;
+    background-image: url('../images/map-background.jpg');
+    background-size: cover;
+
+}
+
+#header {
+    background-color: #87cef6;
+    font-size: 30px;
+    color: white;
+    width: 50%;
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px!important;
+
+}
+
+h1 {
+    text-shadow: 0 0 10px black;
+}
+
+
+
+#main-box, #login-box, #register-box, #about-box {
+    background-color: white;
+    color: #87cef6;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    margin-top:45px;
+}
+
+#location-box {
+    background-color: white;
+    color: #87cef6;
+    float: left;
+
+}
+
+#map-box {
+    float: right;
+    background-color: white;
+
+}
+
+
+a {
+    color: #87cef6;
+    line-height: 3;
+}
+
+a:hover {
+    color: #f08533;
+    text-decoration: none;
+}
+
+#links {
+    margin-top: 25px;
+}
+
+/* issue with footer positioning in full screen */
+footer {
+    padding: 30px;
+    clear: both;
+    font-size: 14px;
+    color: white;
+    background-color: #87cef6;
+    height: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #87cef6 !important;
+    border-color: #87cef6 !important;
+}
+
+/*.btn-primary:hover 
+    background-color: #f08533;
+}*/
+
+label {
+    color: #87cef6;
+}
+
+select {
+    color: #87cef6;
+    background-color: white;
+    border-color: #f08533;
+}
+
+input {
+    color: #87cef6;
+    border-color: #f08533;
+}
+
+.form-control {
+    border-color: #f08533;
+    color: #87cef6 !important;
+}
+
+#city {
+    float: left;
+}
+
+/* #state {
+    float: right;
+} */
