@@ -92,3 +92,27 @@ footer {
 label {
     color: #87cef6;
 }
+
+select {
+    color: #87cef6;
+    background-color: white;
+    border-color: #f08533;
+}
+
+input {
+    color: #87cef6;
+    border-color: #f08533;
+}
+
+.form-control {
+    border-color: #f08533;
+    color: #87cef6 !important;
+}
+
+#city {
+    float: left;
+}
+
+#state {
+    float: right;
+}
