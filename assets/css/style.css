@@ -109,10 +109,14 @@ input {
     color: #87cef6 !important;
 }
 
-#city {
-    float: left;
+#city-state {
+    display: inline-flex;
 }
 
-/* #state {
-    float: right;
-} */
+select {
+    margin-left: 10px;
+}
+
+::-webkit-input-placeholder {
+    color: #87cef6 !important;
+}
