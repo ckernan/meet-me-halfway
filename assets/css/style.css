@@ -23,13 +23,13 @@ body {
 
 }
 
-/*h1 {
-    padding: 20px;
-}*/
+h1 {
+    text-shadow: 0 0 10px black;
+}
 
 
 
-#main-box, #login-box, #register-box {
+#main-box, #login-box, #register-box, #about-box {
     background-color: white;
     color: #87cef6;
     width: 60%;
@@ -37,6 +37,19 @@ body {
     margin-right: auto;
     padding: 50px;
     margin-top:45px;
+}
+
+#location-box {
+    background-color: white;
+    color: #87cef6;
+    float: left;
+
+}
+
+#map-box {
+    float: right;
+    background-color: white;
+
 }
 
 
