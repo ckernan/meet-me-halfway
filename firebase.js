@@ -1,4 +1,4 @@
-// Initialize Firebase
+//intalize firebase
 var config = {
     apiKey: "AIzaSyDYADDzlmYhCz-19TMwc5HlfWeSLkZP9Gc",
     authDomain: "meet-me-halfway-5c89a.firebaseapp.com",
@@ -7,13 +7,18 @@ var config = {
     storageBucket: "meet-me-halfway-5c89a.appspot.com",
     messagingSenderId: "603877384365"
 };
+
 firebase.initializeApp(config);
 
 //variable to reference the database
 let database = firebase.database();
 
+//Inital values
+let person = "";
+let key = "";
+
 //register user
-$("#register-user").on("click", function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
 
     user = $("#exampleInputEmail1").val().trim();
