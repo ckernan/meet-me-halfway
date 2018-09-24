@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry"></script>
+
 </head>
 
 <body>
@@ -19,8 +22,8 @@
                 <form>
                     <label for="city-state">Friend 1 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city" placeholder="city">
-                        <select>
+                        <input type="text" class="form-control" id="city1" placeholder="city">
+                        <select id="state1">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -76,8 +79,8 @@
                     </div>
                     <label for="city-state">Friend 2 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city" placeholder="city">
-                        <select>
+                        <input type="text" class="form-control" id="city2" placeholder="city">
+                        <select id="state2">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -132,7 +135,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -149,6 +152,7 @@
         </div>
     </footer> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="google-maps.js"></script>
 </body>
 
 </html>
