@@ -1,7 +1,21 @@
-// NEEDS TO BE ADDED TO THE HTML FOR THIS TO WORK:
-// <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-// <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry">
+// TODO:
+// Populate HTML with these results
+// Input validation for city
 
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+    let cityA = $("#city1").val().trim();
+    console.log(cityA);
+    let stateA = $("#state1").val();
+    console.log(stateA);
+    let locationA = cityA + ", " + stateA;
+    let cityB = $("#city2").val().trim();
+    console.log(cityB);
+    let stateB = $("#state2").val();
+    let locationB = cityB + ", " + stateB;
+    console.log(stateB);
+    reverseGeolocate(locationA, locationB);
+});
 
 async function getLatLng(address) {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&address=" + address;
@@ -22,16 +36,16 @@ async function geolocate(queryURL, fn) {
 };
 
 // Find Midpoint
-async function findMidpoint() {
-    let city1LatLng = await getLatLng("New York, New York");      // TODO: Grab input from HTML
-    let city2LatLng = await getLatLng("Dallas, TX");         // TODO: Grab input from HTML
+async function findMidpoint(locationA, locationB) {
+    let city1LatLng = await getLatLng(locationA);     
+    let city2LatLng = await getLatLng(locationB);       
     let midpoint = google.maps.geometry.spherical.interpolate(city1LatLng, city2LatLng, .5);
     return midpoint;
 };
 
 // Reverse geolocate midpoint
-function reverseGeolocate() {
-    findMidpoint().then(function (data) {
+function reverseGeolocate(locationA, locationB) {
+    findMidpoint(locationA, locationB).then(function (data) {
         let queryURL = "http://api.geonames.org/findNearbyPlaceNameJSON?username=kdovi&cities=cities15000&maxRows=300&radius=300&lat=" + data.lat() + "&lng=" + data.lng();
         $.get(queryURL).then(function (data) {
             var largeCities = {};
@@ -59,10 +73,11 @@ function reverseGeolocate() {
 
             // Seperate the items, get the city name
             let city1 = topCities[0][0];
+            console.log(city1);
             let city2 = topCities[1][0];
+            console.log(city2);
             let city3 = topCities[2][0];
+            console.log(city3);
         })
     });
 };
-
-reverseGeolocate();
