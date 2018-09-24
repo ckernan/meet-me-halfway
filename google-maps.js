@@ -24,7 +24,7 @@ async function geolocate(queryURL, fn) {
 // Find Midpoint
 async function findMidpoint() {
     let city1LatLng = await getLatLng("New York, New York");      // TODO: Grab input from HTML
-    let city2LatLng = await getLatLng("Dallas, TX");         // TODO: Grab input from HTML
+    let city2LatLng = await getLatLng("Los Angeles, CA");         // TODO: Grab input from HTML
     let midpoint = google.maps.geometry.spherical.interpolate(city1LatLng, city2LatLng, .5);
     return midpoint;
 };
@@ -59,8 +59,11 @@ function reverseGeolocate() {
 
             // Seperate the items, get the city name
             let city1 = topCities[0][0];
+            console.log(city1);
             let city2 = topCities[1][0];
+            console.log(city2);
             let city3 = topCities[2][0];
+            console.log(city3);
         })
     });
 };
