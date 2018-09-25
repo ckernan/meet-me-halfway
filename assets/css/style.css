@@ -29,7 +29,7 @@ h1 {
 
 
 
-#main-box, #login-box, #register-box, #about-box {
+#main-box, #login-box, #register-box, #about-box, #home-box {
     background-color: white;
     color: #87cef6;
     width: 60%;
@@ -43,6 +43,7 @@ h1 {
     background-color: white;
     color: #87cef6;
     float: left;
+    padding: 20px;
 
 }
 
@@ -119,4 +120,69 @@ select {
 
 ::-webkit-input-placeholder {
     color: #87cef6 !important;
+    opacity: 0.5 !important;
+}
+
+.bg-light {
+    background-color: #87cef6 !important;
+}
+
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #f08533;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #f08533;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #f08533;
+}
+
+#home-links {
+    font-size: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+table {
+    margin-top: 30px;
+}
+
+.table, th, td {
+    border-top-color: #f08533 !important;
+    border-bottom-color: #f08533 !important;
+}
+
+.table thead th {
+    border-bottom-color: #f08533 !important;
+}
+
+thead {
+    background-color: #87cef6;
+    color: white;
+}
+
+.btn-danger, .btn-primary:active, .btn-primary:visited {
+    background-color: #f08533 !important;
+    border-color: #f08533 !important;
+}
+
+#my-trips {
+    margin-top: 0px;
+}
+
+iframe {
+    margin-right: 30px;
 }

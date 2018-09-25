@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meet Me Halfway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Meet Me Halfway</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="home.html">Home</a>
+                <a class="nav-item nav-link" href="reg-about.html">About</a>
+                <a class="nav-item nav-link" href="new-trip.html">New Trip</a>
+                <a class="nav-item nav-link active" href="my-trips.html">View Trips</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="header" class="text-center jumbotron">
+            <h1>My Trips</h1>
+        </div>
+        <div id="trips-box" class="text-center jumbotron">
+        <table class="table table-hover" id="my-trips">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4">Trip 1</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Friend 1 Location:</th>
+                    <td colspan="3">City, State</td>
+                   
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Friend 2 Location:</th>
+                    <td colspan="3">City, State</td>
+                    
+                </tr>
+                <tr>
+                    <th scope="row">Destination:</th>
+                    <td colspan="3">City, State</td>
+                  
+                </tr>
+                <tr>
+                    <th scope="row">Prices:</th>
+                    <td>Friend 1 Price</td>
+                    <td>Friend 2 Price</td>
+                    <td>Total Price</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-danger">Remove</button>
+    </div>
+    </div>
+
+</body>
+
+</html>
