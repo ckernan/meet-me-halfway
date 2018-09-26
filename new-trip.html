@@ -9,9 +9,28 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--Firebase Reference-->
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry"></script>
+
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Meet Me Halfway</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="home.html">Home</a>
+                <a class="nav-item nav-link" href="reg-about.html">About</a>
+                <a class="nav-item nav-link active" href="new-trip.html">New Trip</a>
+                <a class="nav-item nav-link" href="my-trips.html">View Trips</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div id="header" class="text-center jumbotron">
             <h1>New Trip</h1>
@@ -21,8 +40,8 @@
                 <form>
                     <label for="city-state">Friend 1 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city" placeholder="city">
-                        <select>
+                        <input type="text" class="form-control" id="city1" placeholder="city">
+                        <select id="state1">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -78,8 +97,8 @@
                     </div>
                     <label for="city-state">Friend 2 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city" placeholder="city">
-                        <select>
+                        <input type="text" class="form-control" id="city2" placeholder="city">
+                        <select id="state2">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -134,14 +153,52 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-danger">Submit</button>
                 </form>
             </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Trip #</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>City</td>
+                        <td>Price</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>City</td>
+                        <td>Price</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>City</td>
+                        <td>Price</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-5">
+
+        <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-6">
             <div id="map">
                 <div id="google-map">
-                    <img src="assets/images/google-map.jpeg">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13803.223189691254!2d-97.8123226!3d30.128370099999998!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1537745834500"
+                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -151,6 +208,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--Local firebase.js-->
         <script src="./firebase.js"></script>
+        <!--Local google maps.js-->
+        <script src="google-maps.js"></script>
+
 </body>
 
 </html>
