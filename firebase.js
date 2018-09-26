@@ -64,7 +64,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         }
 
         let provider = new firebase.auth.GoogleAuthProvider();
-        console.log(provider)
+        // console.log(provider)
         firebase.auth().signInWithRedirect(provider)
     }
 });
@@ -80,15 +80,15 @@ $("#submit").on("click", function (event) {
 
     friend1Location = $("#city1").val().trim();
     friend2Location = $("#city2").val().trim();
-    dest = $("#midpointCity").val().trim();
-    price = $("#midpointPrice").val().trim();
-    trip = $("tripNumber").val().trim();
+    // dest = $("#midpointCity").val().trim();
+    // price = $("#midpointPrice").val().trim();
+    // trip = $("tripNumber").val().trim();
 
     database.ref().push({
         person1: friend1Location,
         person2: friend2Location,
-        destination: dest,
-        tripPrice: price,
-        selectedTrip: trip,
+        // destination: dest,
+        // tripPrice: price,
+        // selectedTrip: trip,
     })
 });

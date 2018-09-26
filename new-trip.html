@@ -11,6 +11,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry"></script>
+    <script src="bootstrap.min.js"></script>
+
 
 </head>
 
@@ -167,16 +169,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" id="tripNumber">1</th>
-                        <td class="city" id="midpointCity">City</td>
-                        <td class="price" id="midpointPrice">Price</td>
+                        <th scope="row">1</th>
+                        <td id="display-city-1">City</td>
+                        <td>Price</td>
                         <td>
                             <button type="submit" class="btn btn-primary" id="sumbit">Save</button>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>City</td>
+                        <td id="display-city-2">City</td>
                         <td>Price</td>
                         <td>
                             <button type="submit" class="btn btn-primary" id="submit">Save</button>
@@ -184,7 +186,7 @@
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>City</td>
+                        <td id="display-city-3">City</td>
                         <td>Price</td>
                         <td>
                             <button type="submit" class="btn btn-primary" id="submit">Save</button>
@@ -194,22 +196,42 @@
             </table>
         </div>
 
+
         <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-6">
-            <div id="map">
-                <div id="google-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13803.223189691254!2d-97.8123226!3d30.128370099999998!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1537745834500"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
+            <div id="map"></div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry&callback=initMap"
+            async defer></script>
+        <script src="google-maps.js"></script>
         <!--JQuery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--Local firebase.js-->
         <script src="./firebase.js"></script>
-        <!--Local google maps.js-->
-        <script src="google-maps.js"></script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal-not-enough" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Oh no!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        It looks like there aren't 3 large cities within the midpoint of your destinations. We've
+                        displayed what we can! Try searching
+                        with different start points.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="close-button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </body>
 
