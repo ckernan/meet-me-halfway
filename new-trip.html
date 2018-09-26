@@ -8,6 +8,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
 
 </head>
 
@@ -199,8 +200,28 @@
     <script src="map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry&callback=initMap"
         async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="google-maps.js"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-not-enough" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Oh no!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                     It looks like there aren't 3 large cities within the midpoint of your destinations. We've displayed what we can! Try searching
+                    with different start points.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close-button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

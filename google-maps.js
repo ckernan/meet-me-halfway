@@ -86,13 +86,22 @@ function reverseGeolocate(locationA, locationB) {
             console.log(topCities);
 
             // Seperate the items, get the city name
-            let city1 = topCities[0][0];
-            $("#display-city-1").text(city1);
+            try {
+                let city1 = topCities[0][0];
+                $("#display-city-1").text(city1);
+            }
+            catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-1").empty()
+                console.error(error);
+            }
             try {
                 let city2 = topCities[1][0];
                 $("#display-city-2").text(city2);
             }
             catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-2").empty()
                 console.error(error);
             }
             try {
@@ -100,12 +109,14 @@ function reverseGeolocate(locationA, locationB) {
                 $("#display-city-3").text(city3);
             }
             catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-3").empty()
                 console.error(error);
             }
+
             // Make pins for the cities
             console.log("here");
             for (var i = 0; i < topCities.length; i++) {
-                console.log("hi");
                 getLatLng(topCities[i][0]);
             };
         })
