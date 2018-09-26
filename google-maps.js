@@ -86,8 +86,15 @@ function reverseGeolocate(locationA, locationB) {
             console.log(topCities);
 
             // Seperate the items, get the city name
-            let city1 = topCities[0][0];
-            $("#display-city-1").text(city1);
+            try {
+                let city1 = topCities[0][0];
+                $("#display-city-1").text(city1);
+            }
+            catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-1").empty()
+                console.error(error);
+            }
             try {
                 let city2 = topCities[1][0];
                 $("#display-city-2").text(city2);
