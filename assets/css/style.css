@@ -53,6 +53,9 @@ h1 {
 
 }
 
+#map {
+    height: 400px;
+}
 
 a {
     color: #87cef6;
