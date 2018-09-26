@@ -1,4 +1,3 @@
-
 var config = {
     apiKey: "AIzaSyDYADDzlmYhCz-19TMwc5HlfWeSLkZP9Gc",
     authDomain: "meet-me-halfway-5c89a.firebaseapp.com",
@@ -15,7 +14,6 @@ let database = firebase.database();
 let txtEmail = document.getElementById('txtEmail');
 let txtPassword = document.getElementById('txtPassword');
 let btnLogin = document.getElementById('btnLogin');
-let btnSignUp = document.getElementById('btnSignUp');
 let btnLogOut = document.getElementById('btnLogOut');
 
 if (btnLogin) {
@@ -58,13 +56,39 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             eMail: firebaseUser.email,
         });
 
+        getUserDetails(firebaseUser)
+
     } else {
         if (btnLogOut) {
             btnLogOut.classList.add('hide');
         }
-        database.ref("users/" + firebaseUser.uid).on("value", function () { })
+
         let provider = new firebase.auth.GoogleAuthProvider();
         console.log(provider)
         firebase.auth().signInWithRedirect(provider)
     }
+});
+
+function getUserDetails(firebaseUser) {
+    database.ref("users/" + firebaseUser.uid).on("value", function () { })
+}
+
+//New Trips
+
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+
+    friend1Location = $("#city1").val().trim();
+    friend2Location = $("#city2").val().trim();
+    dest = $("#midpointCity").val().trim();
+    price = $("#midpointPrice").val().trim();
+    trip = $("tripNumber").val().trim();
+
+    database.ref().push({
+        person1: friend1Location,
+        person2: friend2Location,
+        destination: dest,
+        tripPrice: price,
+        selectedTrip: trip,
+    })
 });
