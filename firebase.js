@@ -78,17 +78,39 @@ function getUserDetails(firebaseUser) {
 $("#submit").on("click", function (event) {
     event.preventDefault();
 
-    friend1Location = $("#city1").val().trim();
+    friend1city = $("#city1").val().trim();
     friend2Location = $("#city2").val().trim();
     // dest = $("#midpointCity").val().trim();
     // price = $("#midpointPrice").val().trim();
     // trip = $("tripNumber").val().trim();
 
     database.ref().push({
-        person1: friend1Location,
+        person1: friend1city,
         person2: friend2Location,
         // destination: dest,
         // tripPrice: price,
         // selectedTrip: trip,
     })
 });
+
+//called when data is added to firebase to populate the table body in "view trips"(my-trips.html)
+
+database.ref().on("child_added", function (snapshot) {
+
+    let personCity1 = snapshot.val().person1
+    let personLocation2 = snapshot.val().person2
+
+    $("#cityState").append(`${personCity1}`)
+    $("#cityState2").append(`${personLocation2}`)
+});
+
+$("#save").on("click", function (event) {
+    event.preventDefault();
+
+    cost1 = $("#price1").val().trim();
+
+    database.ref().push({
+        amount: price,
+    })
+
+}))
