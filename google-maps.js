@@ -1,9 +1,39 @@
 // TODO:
 // Populate HTML with these results
 // Input validation for city
+$(".location-input").submit(function(event){
+    alert( "sup?" );
+event.preventDefault();
+});
+function checkInput() {
+//     var city1 = "";
+//     var city2 = "";
+//     $("#city2").keydown(function (event) {
+//         console.log($(this).val());
+//         city1 = $(this).val();
+//         if (city1 !== "" && city2 !== "") {
+//             if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode == 46) || (event.keyCode == 32) || (event.keyCode == 190) || (event.keyCode == 222) || (event.keyCode == 189)) {
+//                 $('#submit').prop('disabled', false);
+//             }
+//         }   
+//     });
+//    $("#city2").keydown(function (event) {
+//         console.log($(this).val());
+//         city2 = $(this).val();
+//         if (city1 !== "" && city2 !== "") {
+//             if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode == 46) || (event.keyCode == 32) || (event.keyCode == 190) || (event.keyCode == 222) || (event.keyCode == 189)) {
+//                 $('#submit').prop('disabled', false);
+//             }
+//         }
+//     });
+//     console.log(city1, city2)
+
+  
+ }; 
 
 $("#submit").on("click", function (event) {
     event.preventDefault();
+    
     let cityA = $("#city1").val().trim();
     console.log(cityA);
     let stateA = $("#state1").val();
@@ -15,7 +45,10 @@ $("#submit").on("click", function (event) {
     let locationB = cityB + ", " + stateB;
     console.log(stateB);
     reverseGeolocate(locationA, locationB);
+
 });
+
+
 
 async function getLatLng(address) {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&address=" + address;
@@ -37,8 +70,8 @@ async function geolocate(queryURL, fn) {
 
 // Find Midpoint
 async function findMidpoint(locationA, locationB) {
-    let city1LatLng = await getLatLng(locationA);     
-    let city2LatLng = await getLatLng(locationB);       
+    let city1LatLng = await getLatLng(locationA);
+    let city2LatLng = await getLatLng(locationB);
     let midpoint = google.maps.geometry.spherical.interpolate(city1LatLng, city2LatLng, .5);
     return midpoint;
 };
