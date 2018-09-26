@@ -70,47 +70,46 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 });
 
 function getUserDetails(firebaseUser) {
-    database.ref("users/" + firebaseUser.uid).on("value", function () { })
-}
+    database.ref("users/" + firebaseUser.uid).on($("#submit").on("click", function (event) {
+        event.preventDefault();
 
-//New Trips
+        friend1city = $("#city1").val().trim();
+        friend2Location = $("#city2").val().trim();
+        cost1 = $("#price1").val().trim();
+        // dest = $("#midpointCity").val().trim();
+        // price = $("#midpointPrice").val().trim();
+        // trip = $("tripNumber").val().trim();
 
-$("#submit").on("click", function (event) {
-    event.preventDefault();
+        database.ref().push({
+            person1: friend1city,
+            person2: friend2Location,
+            amount: price,
+            // destination: dest,
+            // tripPrice: price,
+            // selectedTrip: trip,
+        })
+    }
 
-    friend1city = $("#city1").val().trim();
-    friend2Location = $("#city2").val().trim();
-    // dest = $("#midpointCity").val().trim();
-    // price = $("#midpointPrice").val().trim();
-    // trip = $("tripNumber").val().trim();
-
-    database.ref().push({
-        person1: friend1city,
-        person2: friend2Location,
-        // destination: dest,
-        // tripPrice: price,
-        // selectedTrip: trip,
-    })
-});
 
 //called when data is added to firebase to populate the table body in "view trips"(my-trips.html)
 
-database.ref().on("child_added", function (snapshot) {
+database.ref("users/" + firebaseUser.uid).on("child_added", function (snapshot) {
 
-    let personCity1 = snapshot.val().person1
-    let personLocation2 = snapshot.val().person2
+            let personCity1 = snapshot.val().person1
+            let personLocation2 = snapshot.val().person2
 
-    $("#cityState").append(`${personCity1}`)
-    $("#cityState2").append(`${personLocation2}`)
-});
+            $("#cityState").append(`${personCity1}`)
+            $("#cityState2").append(`${personLocation2}`)
+        })
+    };
 
-$("#save").on("click", function (event) {
-    event.preventDefault();
+// $("#save").on("click", function (event) {
+//     event.preventDefault();
 
-    cost1 = $("#price1").val().trim();
+//     
 
-    database.ref().push({
-        amount: price,
-    })
+//     database.ref().push({
+//         amount: price,
+//     })
 
-}))
+// }))
