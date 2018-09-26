@@ -1,4 +1,4 @@
-//intalize firebase
+
 var config = {
     apiKey: "AIzaSyDYADDzlmYhCz-19TMwc5HlfWeSLkZP9Gc",
     authDomain: "meet-me-halfway-5c89a.firebaseapp.com",
@@ -7,31 +7,64 @@ var config = {
     storageBucket: "meet-me-halfway-5c89a.appspot.com",
     messagingSenderId: "603877384365"
 };
-
 firebase.initializeApp(config);
 
-//variable to reference the database
 let database = firebase.database();
 
-//Inital values
-let person = "";
-let key = "";
+//Get elements into DOM
+let txtEmail = document.getElementById('txtEmail');
+let txtPassword = document.getElementById('txtPassword');
+let btnLogin = document.getElementById('btnLogin');
+let btnSignUp = document.getElementById('btnSignUp');
+let btnLogOut = document.getElementById('btnLogOut');
 
-//register user
-$("#submit").on("click", function (event) {
-    event.preventDefault();
+if (btnLogin) {
+    //Add login event
+    btnLogin.addEventListener('click', function () {
+        //get email and pass
+        let email = txtEmail.value;
+        let pass = txtPassword.value;
+        let auth = firebase.auth();
+        //Sign in
+        let promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+    });
 
-    user = $("#exampleInputEmail1").val().trim();
-    pass = $("#exampleInputPassword1").val().trim();
+    //user logout
+    btnLogOut.addEventListener('click', function () {
+        firebase.auth().signOut();
+    });
+}
 
+// //add signup event in register page
+// btnSignUp.addEventListener('click', function () {
+//     //get email and pass
+//     let email = txtEmail.value;
+//     let pass = txtPassword.value;
+//     let auth = firebase.auth();
+//     //Sign in
+//     let promise = auth.createUserWithEmailAndPassword(email, pass);
+//     promise.catch(e => console.log(e.message));
+// });
 
-    database.ref().push({
-        username: user,
-        password: pass,
+//add a realtime listener
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        console.log(firebaseUser);
+        if (btnLogOut) {
+            btnLogOut.classList.remove('hide');
+        }
+        database.ref("users/" + firebaseUser.uid).set({
+            eMail: firebaseUser.email,
+        });
 
-    })
-
-    $("#exampleInputEmail1").val('');
-    $("#exampleInputPassword1").val('');
-
+    } else {
+        if (btnLogOut) {
+            btnLogOut.classList.add('hide');
+        }
+        database.ref("users/" + firebaseUser.uid).on("value", function () { })
+        let provider = new firebase.auth.GoogleAuthProvider();
+        console.log(provider)
+        firebase.auth().signInWithRedirect(provider)
+    }
 });
