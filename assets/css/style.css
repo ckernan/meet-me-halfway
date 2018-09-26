@@ -69,7 +69,7 @@ a:hover {
 }
 
 /* issue with footer positioning in full screen */
-footer {
+/* footer {
     padding: 30px;
     clear: both;
     font-size: 14px;
@@ -79,7 +79,7 @@ footer {
     width: 100%;
     position: fixed;
     bottom: 0;
-  }
+  } */
 
   .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #87cef6 !important;
