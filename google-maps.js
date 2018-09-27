@@ -3,7 +3,32 @@
 // Input validation for city
 var marker;
 var markers = []
-$("#submit").on("click", function (event) {
+function checkInput(event) {
+    event.preventDefault();
+    var city1 = $("#city1").val();
+    var city2 = $("#city2").val();
+    var alphaExp = /^[a-zA-Z\-.'\s]+$/;
+
+    console.log('hiiii')
+
+    if (city1 === "" && city2 === "") {
+        $("#invalidAlert").removeClass("hide");
+        return false;
+    }
+
+    if (city1.match(alphaExp) && city2.match(alphaExp)) {
+        sendData();
+        $("#invalidAlert").addClass("hide");
+        return true;
+    }
+
+    $("#invalidAlert").removeClass("hide");
+    return false;
+
+};
+
+function sendData() {
+    console.log("sent");
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     };
@@ -20,7 +45,7 @@ $("#submit").on("click", function (event) {
     let locationB = cityB + ", " + stateB;
     console.log(stateB);
     reverseGeolocate(locationA, locationB);
-});
+};
 
 async function getLatLng(address) {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&address=" + address;
