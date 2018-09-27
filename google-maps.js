@@ -1,54 +1,71 @@
 // TODO:
 // Populate HTML with these results
 // Input validation for city
-$(".location-input").submit(function(event){
-    alert( "sup?" );
-event.preventDefault();
-});
-function checkInput() {
-//     var city1 = "";
-//     var city2 = "";
-//     $("#city2").keydown(function (event) {
-//         console.log($(this).val());
-//         city1 = $(this).val();
-//         if (city1 !== "" && city2 !== "") {
-//             if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode == 46) || (event.keyCode == 32) || (event.keyCode == 190) || (event.keyCode == 222) || (event.keyCode == 189)) {
-//                 $('#submit').prop('disabled', false);
-//             }
-//         }   
-//     });
-//    $("#city2").keydown(function (event) {
-//         console.log($(this).val());
-//         city2 = $(this).val();
-//         if (city1 !== "" && city2 !== "") {
-//             if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode == 46) || (event.keyCode == 32) || (event.keyCode == 190) || (event.keyCode == 222) || (event.keyCode == 189)) {
-//                 $('#submit').prop('disabled', false);
-//             }
-//         }
-//     });
-//     console.log(city1, city2)
 
-  
- }; 
-
-$("#submit").on("click", function (event) {
+function checkInput(event) {
+    var city1 = $("#city1").val();
+    var city2 = $("#city2").val();
+    var alphaExp = /^[a-zA-Z\-.'\s]+$/;
     event.preventDefault();
+
+    console.log('hiiii')
+
+    if (city1 === "" && city2 === "") {
+        $("#invalidAlert").removeClass("hide");
+        return false;
+    }
     
-    let cityA = $("#city1").val().trim();
-    console.log(cityA);
-    let stateA = $("#state1").val();
-    console.log(stateA);
-    let locationA = cityA + ", " + stateA;
-    let cityB = $("#city2").val().trim();
-    console.log(cityB);
-    let stateB = $("#state2").val();
-    let locationB = cityB + ", " + stateB;
-    console.log(stateB);
-    reverseGeolocate(locationA, locationB);
-
-});
+    if(city1.match(alphaExp) && city2.match(alphaExp)) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        };
+        markers = [];
 
 
+        let cityA = $("#city1").val().trim();
+        console.log(cityA);
+        let stateA = $("#state1").val();
+        console.log(stateA);
+        let locationA = cityA + ", " + stateA;
+        let cityB = $("#city2").val().trim();
+        console.log(cityB);
+        let stateB = $("#state2").val();
+        let locationB = cityB + ", " + stateB;
+        console.log(stateB);
+        reverseGeolocate(locationA, locationB);
+        $("#invalidAlert").addClass("hide");
+        return true;
+        
+    }
+    $("#invalidAlert").removeClass("hide");
+    return false;
+
+};
+
+var marker;
+var markers = []
+// $("#submit").on("click", function (event) {
+//     for (var i = 0; i < markers.length; i++) {
+//         markers[i].setMap(null);
+//     };
+//     markers = [];
+//     event.preventDefault();
+
+//     let cityA = $("#city1").val().trim();
+//     console.log(cityA);
+//     let stateA = $("#state1").val();
+//     console.log(stateA);
+//     let locationA = cityA + ", " + stateA;
+//     let cityB = $("#city2").val().trim();
+//     console.log(cityB);
+//     let stateB = $("#state2").val();
+//     let locationB = cityB + ", " + stateB;
+//     console.log(stateB);
+//     reverseGeolocate(locationA, locationB);
+
+// });
+
+// checkInput();
 
 async function getLatLng(address) {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&address=" + address;
@@ -63,10 +80,16 @@ async function geolocate(queryURL, fn) {
         let lat = data.results[0].geometry.location.lat;
         let long = data.results[0].geometry.location.lng;
         var latlong = await new google.maps.LatLng(lat, long);
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: latlong
+        });
+        markers.push(marker);
         return (latlong);
-
     })
-};
+}
 
 // Find Midpoint
 async function findMidpoint(locationA, locationB) {
@@ -79,7 +102,7 @@ async function findMidpoint(locationA, locationB) {
 // Reverse geolocate midpoint
 function reverseGeolocate(locationA, locationB) {
     findMidpoint(locationA, locationB).then(function (data) {
-        let queryURL = "http://api.geonames.org/findNearbyPlaceNameJSON?username=kdovi&cities=cities15000&maxRows=300&radius=300&lat=" + data.lat() + "&lng=" + data.lng();
+        let queryURL = "http://api.geonames.org/findNearbyPlaceNameJSON?username=kdovi&cities=cities15000&maxRows=500&radius=300&lat=" + data.lat() + "&lng=" + data.lng();
         $.get(queryURL).then(function (data) {
             var largeCities = {};
             console.log(data.geonames)
@@ -87,8 +110,9 @@ function reverseGeolocate(locationA, locationB) {
                 var cityName = element.name;
                 var stateName = element.adminCode1;
                 var population = element.population;
-                if (population > 200000) {
-                    largeCities[cityName] = population;
+                var locationName = cityName + ", " + stateName;
+                if (population > 100000) {
+                    largeCities[locationName] = population;
                 }
             });
             // Create items array
@@ -103,14 +127,51 @@ function reverseGeolocate(locationA, locationB) {
 
             // Create a new array with only the first 3 items
             let topCities = items.slice(0, 3);
+            console.log(items);
+            console.log(topCities);
 
             // Seperate the items, get the city name
-            let city1 = topCities[0][0];
-            console.log(city1);
-            let city2 = topCities[1][0];
-            console.log(city2);
-            let city3 = topCities[2][0];
-            console.log(city3);
+            try {
+                let city1 = topCities[0][0];
+                $("#display-city-1").text(city1);
+            }
+            catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-1").empty()
+                console.error(error);
+            }
+            try {
+                let city2 = topCities[1][0];
+                $("#display-city-2").text(city2);
+            }
+            catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-2").empty()
+                console.error(error);
+            }
+            try {
+                let city3 = topCities[2][0];
+                $("#display-city-3").text(city3);
+            }
+            catch (error) {
+                $('#modal-not-enough').modal('show');
+                $("#display-city-3").empty()
+                console.error(error);
+            }
+
+            // Make pins for the cities
+            // console.log("here");
+            for (var i = 0; i < topCities.length; i++) {
+                getLatLng(topCities[i][0]);
+            };
         })
     });
 };
+
+
+
+function clearMarkers() {
+    setMapOnAll(null);
+};
+
+
