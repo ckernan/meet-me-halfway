@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+@import url('https://fonts.googleapis.com/css?family=Prompt');
 
 html {
     min-height: 100%;
 }
 
 body {
-    font-family: 'PT Mono', monospace;
+    font-family: 'Prompt', sans-serif;
     background-image: url('../images/map-background.jpg');
     background-size: cover;
+    font-size: 18px;
 
 }
 
@@ -26,6 +27,7 @@ body {
 
 h1 {
     text-shadow: 0 0 10px black;
+    font-size: 45px;
 }
 
 
@@ -77,27 +79,10 @@ a:hover {
     font-size: 20px;
 }
 
-/* issue with footer positioning in full screen */
-/* footer {
-    padding: 30px;
-    clear: both;
-    font-size: 14px;
-    color: white;
-    background-color: #87cef6;
-    height: 10px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-  } */
-
   .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #87cef6 !important;
     border-color: #87cef6 !important;
 }
-
-/*.btn-primary:hover 
-    background-color: #f08533;
-}*/
 
 label {
     color: black;
@@ -118,6 +103,7 @@ input {
 .form-control {
     border-color: #f08533;
     color: black !important;
+    font-size: 18px;
 }
 
 #city-state {
@@ -137,7 +123,8 @@ input {
 
 .navbar-light .navbar-brand {
     color: white;
-    font-size: 25px;
+    font-size: 30px;
+    text-shadow: 0 0 10px black;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -157,7 +144,7 @@ input {
 }
 
 #home-links {
-    font-size: 20px;
+    font-size: 23px;
 }
 
 img {
@@ -180,13 +167,13 @@ table {
 thead {
     background-color: #87cef6;
     color: white;
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .btn-danger, .btn-primary:active, .btn-primary:visited {
     background-color: #f08533 !important;
     border-color: #f08533 !important;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 #my-trips {
