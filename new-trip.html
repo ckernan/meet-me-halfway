@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Meet Me Halfway</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -193,38 +193,38 @@
                 </tbody>
             </table>
         </div>
-    
 
 
-    <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-12 col-lg-6">
-        <div id="map"></div>
-    </div>
 
-    <script src="map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry&callback=initMap"
-        async defer></script>
-    <script src="google-maps.js"></script>
+        <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div id="map"></div>
+        </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal-not-enough" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Oh no!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                     It looks like there aren't 3 large cities within the midpoint of your destinations. We've displayed what we can! Try searching
-                    with different start points.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="close-button" data-dismiss="modal">Close</button>
+        <script src="map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe61mS8pbcKlszRDS-x3rnM92ygstGBi8&libraries=geometry&callback=initMap"
+            async defer></script>
+        <script src="google-maps.js"></script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal-not-enough" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Oh no!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        It looks like there aren't 3 large cities within the midpoint of your destinations. We've displayed what we can! Try searching
+                        with different start points.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="close-button" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 
