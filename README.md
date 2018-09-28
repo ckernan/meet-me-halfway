@@ -22,9 +22,6 @@ Update this with things
 * **Kathleen Doviken** - *Google Maps & GeoNames Integration* - [kathdovi](https://github.com/kathdovi)
 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
