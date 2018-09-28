@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Meet Me Halfway</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -33,12 +34,13 @@
         <div id="header" class="text-center jumbotron">
             <h1>New Trip</h1>
         </div>
-        <div id="location-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-5">
+        <div id="location-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-12 col-lg-5">
             <div id="location">
-                 <form class="location-input" action="#" method="post" onsubmit="return checkInput(event)">
+
+                <form class="location-input" action="#" method="post" onsubmit="return checkInput(event)">
                     <label for="city-state">Friend 1 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city1" placeholder="city">
+                        <input type="text" class="form-control city-input" id="city1" placeholder="city">
                         <select id="state1">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -95,7 +97,7 @@
                     </div>
                     <label for="city-state">Friend 2 Location:</label>
                     <div id="city-state" class="form-group">
-                        <input type="text" class="form-control" id="city2" placeholder="city">
+                        <input type="text" class="form-control city-input" id="city2" placeholder="city">
                         <select id="state2">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -158,42 +160,43 @@
                 <thead>
                     <tr>
                         <th scope="col">Trip #</th>
-                        <th scope="col">City</th>
+                        <th scope="col">City, State</th>
                         <th scope="col">Price</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td id="display-city-1">City</td>
-                        <td>Price</td>
+                        <th scope="row" id="option1">1</th>
+                        <td id="display-city-1">City, State</td>
+                        <td id="city-1-price">Price</td>
                         <td>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary" id="save1">Save</button>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td id="display-city-2">City</td>
-                        <td>Price</td>
+                        <th scope="row" id="option2">2</th>
+                        <td id="display-city-2">City, State</td>
+                        <td id="city-2-price">Price</td>
                         <td>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary" id="save2">Save</button>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td id="display-city-3">City</td>
-                        <td>Price</td>
+                        <th scope="row" id="option3">3</th>
+                        <td id="display-city-3">City, State</td>
+                        <td id="city-3-price">Price</td>
                         <td>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary" id="save3">Save</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    
 
 
-    <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-6">
+    <div id="map-box" class="text-center jumbotron col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <div id="map"></div>
     </div>
 

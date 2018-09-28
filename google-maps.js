@@ -1,6 +1,3 @@
-// TODO:
-// Populate HTML with these results
-// Input validation for city
 var marker;
 var markers = []
 function checkInput(event) {
@@ -140,7 +137,7 @@ function reverseGeolocate(locationA, locationB) {
             }
 
             // Make pins for the cities
-            console.log("here");
+            // console.log("here");
             for (var i = 0; i < topCities.length; i++) {
                 getLatLng(topCities[i][0]);
             };
