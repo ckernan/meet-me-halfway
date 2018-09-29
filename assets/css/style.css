@@ -69,7 +69,7 @@ h1 {
 
 a {
     color: #f08533;
-    line-height: 3;
+    
 }
 
 a:hover {
@@ -81,6 +81,7 @@ a:hover {
 #links {
     margin-top: 25px;
     font-size: 20px;
+    line-height: 3;
 }
 
   .btn-primary, .btn-primary:active, .btn-primary:visited {

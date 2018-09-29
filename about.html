@@ -18,7 +18,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-               
+
             </div>
         </div>
     </nav>
@@ -29,9 +29,16 @@
         </div>
         <div id="about-box" class="text-center jumbotron">
             <div id="about">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.</p>
+                <p>This app uses Google Maps to geolocate two addresses given by the user and then calculates a midpoint between
+                    the two locations using the Google Maps API. It then reverse geolocates the calculated midpoint and sends
+                    the city name of the midpoint to the GeoNames API to obtain a list of cities with populations over 15,000
+                    people within a 300km radius from that midpoint. Next, we filter the cities and store those with a population
+                    of over 100,000 people. The stored values are ordered from largest city to smallest city and the top
+                    3 cities are populated on the Google Map and presented to the user in the trip table. These cities are
+                    then taken by the Kiwi API which calculates the total price for users to fly to each potential destination
+                    city, and displays these prices to the user. In some cases, the search will not display 3 cities because
+                    there were not enough major cities within that midpoint. The users will be prompted with a modal explaining
+                    that 3 large cities were not found and present the number of cities that were.</p>
             </div>
         </div>
     </div>
