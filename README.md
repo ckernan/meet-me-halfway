@@ -15,7 +15,7 @@ Update this with things
 * [Bootstrap](http://getbootstrap.com/) - Front-End Library
 * [Google Maps API](https://developers.google.com/maps/documentation/) - API used to include map, geolocate & reverse geolocate, calculate midpoint
 * [GeoNames API](http://www.geonames.org/export/web-services.html) - API used to grab cities near midpoint
-* [Firebase](https://firebase.google.com/?hl=en-419) -Database
+* [Firebase](https://firebase.google.com/?hl=en-419) - Database
 
 
 ## Authors
