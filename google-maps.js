@@ -79,7 +79,7 @@ async function findMidpoint(locationA, locationB) {
 // Reverse geolocate midpoint
 function reverseGeolocate(locationA, locationB) {
     findMidpoint(locationA, locationB).then(function (data) {
-        let queryURL = "https://api.geonames.org/findNearbyPlaceNameJSON?username=kdovi&cities=cities15000&maxRows=500&radius=300&lat=" + data.lat() + "&lng=" + data.lng();
+        let queryURL = "http://api.geonames.org/findNearbyPlaceNameJSON?username=kdovi&cities=cities15000&maxRows=500&radius=300&lat=" + data.lat() + "&lng=" + data.lng();
         $.get(queryURL).then(function (data) {
             var largeCities = {};
             console.log(data.geonames)
