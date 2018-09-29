@@ -1,6 +1,6 @@
 # Meet Me Halfway
 
-Meet Me Halfway is an application that allows a user to enter their start location and their friend's start location and find potential cities to visit near the midpoint between both cities with cheap flights. 
+Meet Me Halfway is an application that allows a user to enter their start location and their friend's start location and find potential cities to visit near the midpoint between both cities with cheap flights. The app can be accessed [here](https://kathdovi.github.io/meet-me-halfway/)
 
 ## Algorithm
 
