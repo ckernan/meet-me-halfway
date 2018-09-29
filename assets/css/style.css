@@ -211,3 +211,15 @@ iframe {
 #invalidAlert {
     color: red;
 }
+
+@media screen and (max-width: 440px) {
+    #home-box, #about-box, #main-box {
+        width: 95%;
+        padding: 2rem 1rem;
+    }
+
+    #header {
+        width: 75%;
+    }
+}
+
