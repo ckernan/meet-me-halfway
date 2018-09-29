@@ -155,19 +155,19 @@ function updatePrices(topCities,locationA) {
     let trip2 = topCities[1][0].split(",")[0].split("-")[0];
     let trip3 = topCities[2][0].split(",")[0].split("-")[0];
 
-    let flyURL1 = "https://api.skypicker.com/flights?curr=USD&flyFrom=" + locationA + "&to=" + trip1 + "&partner=picky"
+    let flyURL1 = "https://api.skypicker.com/flights?curr=USD&typeFlight=oneway&flyFrom=" + locationA + "&to=" + trip1 + "&partner=picky"
     $.get(flyURL1).then(parameter => {
         console.log("Flight Price 1: " + parameter.data[0].price);
         $("#city-1-price").empty().append(parameter.data[0].price * 4)
     })
 
-    let flyURL2 = "https://api.skypicker.com/flights?curr=USD&typeFlight=round&flyFrom=" + locationA + "&to=" + trip2 + "&partner=picky"
+    let flyURL2 = "https://api.skypicker.com/flights?curr=USD&typeFlight=oneway&flyFrom=" + locationA + "&to=" + trip2 + "&partner=picky"
     $.get(flyURL2).then(parameter => {
         console.log("Flight Price 2: " + parameter.data[0].price);
         $("#city-2-price").empty().append(parameter.data[0].price * 4)
     })
 
-    let flyURL3 = "https://api.skypicker.com/flights?curr=USD&typeFlight=round&flyFrom=" + locationA + "&to=" + trip3 + "&partner=picky"
+    let flyURL3 = "https://api.skypicker.com/flights?curr=USD&typeFlight=oneway&flyFrom=" + locationA + "&to=" + trip3 + "&partner=picky"
     $.get(flyURL3).then(parameter => {
         console.log("Flight Price 3: " + parameter.data[0].price);
         $("#city-3-price").empty().append(parameter.data[0].price * 4)
