@@ -6,9 +6,6 @@ Meet Me Halfway is an application that allows a user to enter their start locati
 
 This app uses Google Maps to geolocate an address given by the user and then it calculates a midpoint between the two locations using the Google Maps API. It then reverse geolocates the calculated midpoint and sends the city name of the midpoint to the GeoNames API to obtain the list of cities with populations over 15,000 people within a 300km radius from the midpoint. We then filter the cities and store those with a population of over 100,000 people. Then, we order these values from largest city to smallest city and populate these cities on the Google Map as well as present the user with the 3 cities in the trip table. These cities are then taken by the Skypicker API and used to calculate the price for users to fly to each potential destination city, and displays these prices to the user. In some cases, the search will not display 3 cities because of insufficent data. The users will be prompted with a modal explaining that 3 large cities were not found and presented with the number of cities that were.
 
-## Other Things
-
-Update this with things
 
 ## Built With
 
