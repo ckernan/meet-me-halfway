@@ -27,5 +27,5 @@ This app uses Google Maps to geolocate an address given by the user and then it 
 ## Acknowledgments
 
 * [Serve](https://www.npmjs.com/package/serve) - Used for testing 
-* [CORS Anywhere](https://github.com/Rob--W/cors-anywhere) - Used to make http call on https GitHub Pages site
+* [CORS Anywhere](https://github.com/Rob--W/cors-anywhere) - Used to make API call to GeoNames (http) on GitHub Pages site (https)
 
