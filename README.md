@@ -15,17 +15,18 @@ Update this with things
 * [Bootstrap](http://getbootstrap.com/) - Front-End Library
 * [Google Maps API](https://developers.google.com/maps/documentation/) - API used to include map, geolocate & reverse geolocate, calculate midpoint
 * [GeoNames API](http://www.geonames.org/export/web-services.html) - API used to grab cities near midpoint
+* [Firebase](https://firebase.google.com/?hl=en-419) -Database
 
 
 ## Authors
 
 * **Kathleen Doviken** - *Google Maps & GeoNames Integration* - [kathdovi](https://github.com/kathdovi)
 * **Cristina Kernan** - *HTML/CSS & User Input Validation* - [ckernan](https://github.com/ckernan)
-
+* **Alexandria Toothman** - *Database Integration*
 
 
 ## Acknowledgments
-
+* [Serve](https://www.npmjs.com/package/serve) - Used for testing 
 * Hat tip to anyone whose code was used
 * Inspiration
 * etc
