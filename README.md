@@ -20,6 +20,8 @@ Update this with things
 ## Authors
 
 * **Kathleen Doviken** - *Google Maps & GeoNames Integration* - [kathdovi](https://github.com/kathdovi)
+* **Cristina Kernan** - *HTML/CSS & User Input Validation* - [ckernan](https://github.com/ckernan)
+
 
 
 ## Acknowledgments
