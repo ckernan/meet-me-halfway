@@ -115,6 +115,7 @@ function reverseGeolocate(locationA, locationB) {
             catch (error) {
                 $('#modal-not-enough').modal('show');
                 $("#display-city-1").empty()
+                $("#city-1-price").empty()
                 console.error(error);
             }
             try {
@@ -124,6 +125,7 @@ function reverseGeolocate(locationA, locationB) {
             catch (error) {
                 $('#modal-not-enough').modal('show');
                 $("#display-city-2").empty()
+                $("#city-2-price").empty()
                 console.error(error);
             }
             try {
@@ -133,8 +135,11 @@ function reverseGeolocate(locationA, locationB) {
             catch (error) {
                 $('#modal-not-enough').modal('show');
                 $("#display-city-3").empty()
+                $("#city-3-price").empty()
                 console.error(error);
             }
+
+            updatePrices(topCities,locationA);
 
             // Make pins for the cities
             // console.log("here");
@@ -145,7 +150,29 @@ function reverseGeolocate(locationA, locationB) {
     });
 };
 
+function updatePrices(topCities,locationA) {
+    let trip1 = topCities[0][0].split(",")[0].split("-")[0];
+    let trip2 = topCities[1][0].split(",")[0].split("-")[0];
+    let trip3 = topCities[2][0].split(",")[0].split("-")[0];
 
+    let flyURL1 = "https://api.skypicker.com/flights?curr=USD&flyFrom=" + locationA + "&to=" + trip1 + "&partner=picky"
+    $.get(flyURL1).then(parameter => {
+        console.log("Flight Price 1: " + parameter.data[0].price);
+        $("#city-1-price").empty().append(parameter.data[0].price * 2)
+    })
+
+    let flyURL2 = "https://api.skypicker.com/flights?curr=USD&typeFlight=round&flyFrom=" + locationA + "&to=" + trip2 + "&partner=picky"
+    $.get(flyURL2).then(parameter => {
+        console.log("Flight Price 2: " + parameter.data[0].price);
+        $("#city-2-price").empty().append(parameter.data[0].price * 2)
+    })
+
+    let flyURL3 = "https://api.skypicker.com/flights?curr=USD&typeFlight=round&flyFrom=" + locationA + "&to=" + trip3 + "&partner=picky"
+    $.get(flyURL3).then(parameter => {
+        console.log("Flight Price 3: " + parameter.data[0].price);
+        $("#city-3-price").empty().append(parameter.data[0].price * 2)
+    })
+}
 
 function clearMarkers() {
     setMapOnAll(null);
