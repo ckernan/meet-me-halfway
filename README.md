@@ -20,7 +20,7 @@ Update this with things
 
 ## Authors
 
-* **Kathleen Doviken** - *Google Maps & GeoNames Integration* - [kathdovi](https://github.com/kathdovi)
+* **Kathleen Doviken** - *Google Maps & GeoNames API Integration & Error Handling* - [kathdovi](https://github.com/kathdovi)
 * **Cristina Kernan** - *HTML/CSS & User Input Validation* - [ckernan](https://github.com/ckernan)
 * **Alexandria Toothman** - *Database Integration* - [artooth](https://github.com/artooth)
 
