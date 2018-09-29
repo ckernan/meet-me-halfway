@@ -22,11 +22,10 @@ Update this with things
 
 * **Kathleen Doviken** - *Google Maps & GeoNames Integration* - [kathdovi](https://github.com/kathdovi)
 * **Cristina Kernan** - *HTML/CSS & User Input Validation* - [ckernan](https://github.com/ckernan)
-* **Alexandria Toothman** - *Database Integration*
+* **Alexandria Toothman** - *Database Integration* - [artooth](https://github.com/artooth)
 
 
 ## Acknowledgments
+
 * [Serve](https://www.npmjs.com/package/serve) - Used for testing 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+
