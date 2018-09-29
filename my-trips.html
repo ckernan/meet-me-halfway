@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Meet Me Halfway</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -41,24 +42,22 @@
                 <tbody>
                     <tr>
                         <th scope="row">Friend 1 Location:</th>
-                        <td>City, State</td>
+                        <td id="cityState1">City, State</td>
 
-
-                        </td>
                     </tr>
                     <tr>
                         <th scope="row">Friend 2 Location:</th>
-                        <td>City, State</td>
+                        <td id="cityState2">City, State </td>
 
                     </tr>
                     <tr>
                         <th scope="row">Destination:</th>
-                        <td>City, State</td>
+                        <td id="finalDestination">City, State</td>
 
                     </tr>
                     <tr>
                         <th scope="row">Total Price:</th>
-                        <td>$</td>
+                        <td id="totalPrice">$</td>
 
                     </tr>
                 </tbody>
@@ -67,6 +66,15 @@
         </div>
     </div>
 
+
+    <!--Firebase Reference-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Local firebase.js-->
+    <script src="firebase.js"></script>
+    <script src="my-trips.js"></script>
 </body>
 
 </html>
