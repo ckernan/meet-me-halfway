@@ -52,6 +52,10 @@ h1 {
 
 }
 
+#trips-box {
+    background-color: white;
+}
+
 
 #map-box {
     float: right;
