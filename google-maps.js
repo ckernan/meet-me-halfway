@@ -139,13 +139,13 @@ function reverseGeolocate(locationA, locationB) {
                 console.error(error);
             }
 
-            updatePrices(topCities,locationA);
-
             // Make pins for the cities
             // console.log("here");
             for (var i = 0; i < topCities.length; i++) {
                 getLatLng(topCities[i][0]);
             };
+            
+            updatePrices(topCities,locationA);
         })
     });
 };
