@@ -15,7 +15,7 @@ Some things we'd like to add in the future are:
 * Suggestions for things to do/see in each potential city (potentially powered with Google Places)
 
 ## Demo
-![](https://github.com/kathdovi/meet-me-halfway/blob/master/Meet%20Me%20Halfway.gif)
+![](https://github.com/kathdovi/meet-me-halfway/blob/master/MeetMeHalfway.gif)
 
 
 ## Built With
